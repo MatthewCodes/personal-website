@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Matthew Rhodes</title>
+  <link rel="stylesheet" href="greek-shared.css" />
+  <style>
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+    }
+    h1 em { font-style: italic; color: var(--sage); }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--font-b);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .download-btn:hover { opacity: 0.85; }
+    .download-btn svg { width: 16px; height: 16px; }
+
+    .resume-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px 120px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+    }
+    @media (max-width: 768px) {
+      .resume-body { grid-template-columns: 1fr; padding: 40px 24px 80px; }
+    }
+
+    .sidebar-section { margin-bottom: 44px; }
+    .sidebar-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 14px;
+    }
+    .contact-type {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .contact-val {
+      font-size: 0.875rem;
+      color: var(--cream);
+      font-weight: 300;
+      text-decoration: none;
+    }
+    .contact-val:hover { color: var(--gold); }
+
+    .skill-group { margin-bottom: 18px; }
+    .skill-group-name {
+      font-size: 0.75rem;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      font-size: 0.7rem;
+      color: var(--cream);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    .resume-section { margin-bottom: 52px; }
+    .section-heading {
+      font-family: var(--font-d);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-heading em { font-style: italic; color: var(--sage); }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px 24px;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(200,168,75,0.08);
+    }
+    .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .entry-title {
+      font-family: var(--font-d);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+    }
+    .entry-date {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      white-space: nowrap;
+      padding-top: 4px;
+    }
+    .entry-org {
+      font-size: 0.82rem;
+      color: var(--sage);
+      grid-column: 1 / -1;
+      margin-top: -2px;
+      font-weight: 300;
+    }
+    .entry-bullets {
+      grid-column: 1 / -1;
+      margin-top: 12px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .entry-bullets li {
+      font-size: 0.875rem;
+      line-height: 1.78;
+      color: rgba(236,228,204,0.72);
+      font-weight: 300;
+      padding-left: 18px;
+      position: relative;
+    }
+    .entry-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="greek-key-top"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Matthew</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="https://github.com/MatthewCodes" target="_blank">Github</a></li>
+        <li><a href="resume.html" class="active">Resume</a></li>
+      </ul>
+      <a href="uploads/Matthew_Rhodes_AI_Agent_Engineer-2.pdf" download class="nav-cta">Download PDF</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div>
+      <p class="eyebrow anim">Matthew Rhodes</p>
+      <h1 class="anim anim-1">My <em>Résumé</em></h1>
+    </div>
+    <a href="uploads/Matthew_Rhodes_AI_Agent_Engineer-2.pdf" download class="download-btn anim anim-2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download PDF
+    </a>
+  </div>
+
+  <div class="resume-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar anim anim-1">
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Contact</p>
+        <div class="contact-item">
+          <span class="contact-type">Email</span>
+          <a href="mailto:matthewdatarhodes@gmail.com" class="contact-val">matthewdatarhodes@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-type">GitHub</span>
+          <a href="https://github.com/MatthewCodes" target="_blank" class="contact-val">MatthewCodes</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-type">Location</span>
+          <span class="contact-val">Mountain View, CA</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Skills</p>
+        <div class="skill-group">
+          <p class="skill-group-name">Expert</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">Langgraph</span>
+            <span class="skill-tag">Git</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-name">Experienced</p>
+          <div class="skill-tags">
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Bedrock</span>
+            <span class="skill-tag">RAG</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <p class="skill-group-name">Tools</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Eleven Labs</span>
+            <span class="skill-tag">Deepgram</span>
+            <span class="skill-tag">LiveKit</span>
+            <span class="skill-tag">ReTool</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Education</p>
+        <div class="contact-item">
+          <span class="contact-type">Masters · Data Science</span>
+          <span class="contact-val">University of Washington</span>
+          <span style="font-size:0.72rem;color:var(--muted);margin-top:2px;">2019 – 2021</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-type">BS · Computer Science</span>
+          <span class="contact-val">Michigan State University</span>
+          <span style="font-size:0.72rem;color:var(--muted);margin-top:2px;">2015 – 2019</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-type">Minor · Entrepreneurship &amp; Innovation</span>
+          <span class="contact-val">Michigan State University</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content anim anim-2">
+
+      <div class="resume-section">
+        <h2 class="section-heading">Work <em>Experience</em></h2>
+
+        <div class="entry">
+          <div class="entry-title">AI Agent Engineer</div>
+          <div class="entry-date">May 2025 — Apr 2026</div>
+          <div class="entry-org">Liberate Inc. · Berkeley, CA</div>
+          <ul class="entry-bullets">
+            <li>Built single and multi-agent voice AI assistants for companies along with testing, monitoring, and improving them after deploying into production.</li>
+            <li>Managed customer relations through meetings, project updates, and timeline negotiations.</li>
+            <li>Implemented ReTool dashboards to monitor custom metrics.</li>
+            <li>Worked with Langgraph, Eleven Labs, Deepgram, and LiveKit.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Data Scientist II</div>
+          <div class="entry-date">Feb 2023 — May 2025</div>
+          <div class="entry-org">Generative AI Innovation Center (Amazon) · Santa Clara, CA</div>
+          <ul class="entry-bullets">
+            <li>Spearheaded development of scalable generative AI pipelines utilizing agents, LLMs, and AWS for Fortune 500 clients.</li>
+            <li>Presented proposals to C-suite and VP stakeholders, securing over $1M in revenue.</li>
+            <li>Led Agent Tiger Team — built production-ready multi-agent workflow platform and agent configuration evaluation system.</li>
+            <li>Synthesized 1000+ page PDFs into reader-friendly summaries; built zero-shot entity recognition pipeline for unstructured data.</li>
+            <li>Incorporated Bedrock Guardrails into existing LLM pipelines to enhance responsible AI practices.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Data Scientist I</div>
+          <div class="entry-date">Apr 2021 — Feb 2023</div>
+          <div class="entry-org">Machine Learning Solutions Lab (Amazon) · Santa Clara, CA</div>
+          <ul class="entry-bullets">
+            <li>Designed and deployed computer vision, NLP, predictive modeling, and classification systems for enterprise datasets.</li>
+            <li>Built personalized recommendation engines for careers and entertainment domains.</li>
+            <li>Developed revenue and resource forecasting pipelines via time series analysis.</li>
+            <li>Built database deduplication solutions to improve data integrity.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Chief Executive Officer</div>
+          <div class="entry-date">Jan 2022 — Present</div>
+          <div class="entry-org">Mortodoo Inc. · Detroit, MI</div>
+          <ul class="entry-bullets">
+            <li>Led product development for a niche startup, overseeing a 4-person engineering team.</li>
+            <li>Pitched to Venture Capitalists, securing capital to launch MVP.</li>
+            <li>Architected iOS and Android apps and led design of the company website.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="resume-section">
+        <h2 class="section-heading"><em>Publications</em></h2>
+
+        <div class="entry">
+          <div class="entry-title">Zero-shot Hierarchical Named Entity Recognition with Large Language Models</div>
+          <div class="entry-date">Sep – Nov 2023</div>
+          <div class="entry-org">Amazon Machine Learning Conference · Santa Clara, CA</div>
+          <ul class="entry-bullets">
+            <li>Internal publication covering performance of multiple LLMs in a hierarchical NER setting.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title">Scalable Generative Data Augmentation: A Case Study with Medical-Grade Images</div>
+          <div class="entry-date">Aug 2023 – Oct 2024</div>
+          <div class="entry-org">Amazon Machine Learning Conference · Santa Clara, CA</div>
+          <ul class="entry-bullets">
+            <li>Internal publication covering usage of medical-grade images to create synthetic data and train ML models.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

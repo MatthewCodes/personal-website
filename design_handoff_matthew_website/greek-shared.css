@@ -1,0 +1,134 @@
+/* ── SHARED GREEK AESTHETIC ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0d1f0d;
+  --bg2:       #111f11;
+  --surface:   rgba(205, 195, 165, 0.07);
+  --surface2:  rgba(205, 195, 165, 0.12);
+  --gold:      #c8a84b;
+  --gold-dim:  rgba(200, 168, 75, 0.3);
+  --cream:     #ece4cc;
+  --sage:      #7a9e7e;
+  --sage-dim:  rgba(122, 158, 126, 0.25);
+  --muted:     #6a8a6e;
+  --border:    rgba(200, 168, 75, 0.2);
+  --font-d:    'Cormorant Garant', serif;
+  --font-b:    'Inter', sans-serif;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-b);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── GREEK KEY BORDER ── */
+.greek-key-top {
+  width: 100%;
+  height: 4px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--gold) 0px, var(--gold) 8px,
+      transparent 8px, transparent 12px,
+      var(--gold) 12px, var(--gold) 16px,
+      transparent 16px, transparent 20px
+    );
+  opacity: 0.45;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 31, 13, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  font-family: var(--font-d);
+  font-size: 1.7rem;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.logo span { color: var(--gold); }
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.nav-cta {
+  font-family: var(--font-b);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bg);
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 10px 24px;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ── ORNAMENT ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--gold);
+  opacity: 0.6;
+  font-size: 1.1rem;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.5;
+}
+
+/* ── PAGE WRAPPER ── */
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim { animation: fade-up 0.7s ease-out both; }
+.anim-1 { animation-delay: 0.1s; }
+.anim-2 { animation-delay: 0.2s; }
+.anim-3 { animation-delay: 0.3s; }
+.anim-4 { animation-delay: 0.4s; }

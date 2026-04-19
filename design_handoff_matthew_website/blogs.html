@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs — Matthew</title>
+  <link rel="stylesheet" href="greek-shared.css" />
+  <style>
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--cream);
+    }
+    h1 em { font-style: italic; color: var(--sage); }
+
+    .subtitle {
+      margin-top: 24px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    /* Blog grid */
+    .blog-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .blog-card {
+      background: var(--bg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .blog-card:hover { background: var(--surface); }
+    .blog-card:hover .card-arrow { transform: translate(4px, -4px); }
+
+    .card-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+    .card-title {
+      font-family: var(--font-d);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .card-excerpt {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--muted);
+      font-weight: 300;
+      flex: 1;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .card-date {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .card-arrow {
+      color: var(--gold);
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+
+    /* Empty / coming soon card */
+    .blog-card.empty {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      cursor: default;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 260px;
+    }
+    .blog-card.empty:hover { background: var(--surface); }
+    .empty-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      opacity: 0.4;
+    }
+    .empty-text {
+      font-family: var(--font-d);
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .empty-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      opacity: 0.6;
+      margin-top: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .grid-wrapper {
+      max-width: 1100px;
+      margin: 60px auto 100px;
+      padding: 0 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="greek-key-top"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Matthew</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blogs.html" class="active">Blogs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="https://github.com/MatthewCodes" target="_blank">Github</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+      <a href="#" class="nav-cta">Intro Video</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <p class="eyebrow anim">Thoughts &amp; Explorations</p>
+    <h1 class="anim anim-1">The <em>Journal</em></h1>
+    <p class="subtitle anim anim-2">Writing on AI, generative systems, social impact, and the intersections that matter most.</p>
+  </div>
+
+  <div class="grid-wrapper">
+    <div class="blog-grid anim anim-1">
+
+      <a href="https://aws.amazon.com/blogs/machine-learning/detect-defects-in-automotive-parts-with-amazon-lookout-for-vision-and-amazon-sagemaker/" target="_blank" class="blog-card" id="blog-1">
+        <div class="card-tag">Anomaly Detection</div>
+        <div class="card-title">Small Anomaly Detection</div>
+        <div class="card-excerpt">Exploring techniques for detecting subtle anomalies in datasets — where traditional methods fall short and machine learning picks up the signal.</div>
+        <div class="card-footer">
+          <span class="card-date">Matthew Rhodes</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://aws.amazon.com/blogs/machine-learning/part-2-power-recommendations-and-search-using-an-imdb-knowledge-graph/" target="_blank" class="blog-card" id="blog-2">
+        <div class="card-tag">Graph Neural Networks</div>
+        <div class="card-title">Using Graph Neural Networks to Generate Movie Recommendations</div>
+        <div class="card-excerpt">A deep dive into applying GNNs to the recommendation problem — leveraging relational structure to surface more meaningful suggestions.</div>
+        <div class="card-footer">
+          <span class="card-date">Matthew Rhodes</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://aws.amazon.com/blogs/machine-learning/how-rallypoint-and-aws-are-personalizing-job-recommendations-to-help-military-veterans-and-service-providers-transition-back-into-civilian-life-using-amazon-personalize/" target="_blank" class="blog-card" id="blog-3">
+        <div class="card-tag">Career AI</div>
+        <div class="card-title">Building a Career Recommendation Engine</div>
+        <div class="card-excerpt">How I built a personalized career recommendation system — the architecture, data challenges, and lessons learned along the way.</div>
+        <div class="card-footer">
+          <span class="card-date">Matthew Rhodes</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</body>
+</html>

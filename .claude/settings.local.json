@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netlify --version)",
+      "Bash(python -m http.server 8765)",
+      "Bash(curl -sS -o /dev/null -w \"index:%{http_code} \" http://localhost:8765/index.html)",
+      "Bash(curl -sS -o /dev/null -w \"about:%{http_code} \" http://localhost:8765/about.html)",
+      "Bash(curl -sS -o /dev/null -w \"blogs:%{http_code} \" http://localhost:8765/blogs.html)",
+      "Bash(curl -sS -o /dev/null -w \"resume:%{http_code} \" http://localhost:8765/resume.html)",
+      "Bash(curl -sS -o /dev/null -w \"css:%{http_code} \" http://localhost:8765/greek-shared.css)",
+      "Bash(curl -sS -o /dev/null -w \"bg:%{http_code} \" http://localhost:8765/videos/background.mp4)",
+      "Bash(curl -sS -o /dev/null -w \"intro:%{http_code}\\\\n\" http://localhost:8765/videos/intro.mp4)"
+    ]
+  }
+}
