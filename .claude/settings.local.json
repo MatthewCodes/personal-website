@@ -9,7 +9,8 @@
       "Bash(curl -sS -o /dev/null -w \"resume:%{http_code} \" http://localhost:8765/resume.html)",
       "Bash(curl -sS -o /dev/null -w \"css:%{http_code} \" http://localhost:8765/greek-shared.css)",
       "Bash(curl -sS -o /dev/null -w \"bg:%{http_code} \" http://localhost:8765/videos/background.mp4)",
-      "Bash(curl -sS -o /dev/null -w \"intro:%{http_code}\\\\n\" http://localhost:8765/videos/intro.mp4)"
+      "Bash(curl -sS -o /dev/null -w \"intro:%{http_code}\\\\n\" http://localhost:8765/videos/intro.mp4)",
+      "Bash(curl *)"
     ]
   }
 }
